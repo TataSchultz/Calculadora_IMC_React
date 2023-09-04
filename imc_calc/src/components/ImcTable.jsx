@@ -2,11 +2,12 @@ import Button from './Button'
 import  './ImcTable.css'
 
 // eslint-disable-next-line react/prop-types
-export const ImcTable = ({data, }) => {
+export const ImcTable = ({data, imc, info, infoClass, resetCalc}) => {
   return (
     <><div id="result-container">
-      <p id="imc-number">Seu Imc: </p>
-      <p id="imc-info">Situação atual: </p>
+      <p id="imc-number">
+        Seu Imc: <span className={infoClass}>{imc}</span></p>
+      <p id="imc-info">Situação atual: <span className={infoClass}>{info}</span></p>
       <h3>Confira as classificaçoes: </h3>
       <div id="imc-table">
         <div className="table-header">
@@ -22,8 +23,7 @@ export const ImcTable = ({data, }) => {
           <p>{item.obesity}</p>
         </div>
       ))}
-    </div><Button id="back-btn" text="voltar"/></>
- 
-
+    </div>
+    <Button id="back-btn" text="voltar" action={resetCalc}/></>
   )
 }
